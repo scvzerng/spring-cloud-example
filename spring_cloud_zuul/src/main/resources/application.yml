@@ -12,6 +12,9 @@ zuul:
   prefix: /api/  #统一前缀
   retryable: false #关闭重试
   routes:
-      consumer:
+      example-service:
            path: examples/** #需要映射的uri
            serviceId: example-service #需要转发到的服务ID
+      test-service:
+           path: tests/**
+           service-id: test-service
