@@ -1,2 +1,4 @@
 rootProject.name = 'spring-cloud-example'
+include 'spring_cloud_server_config'
+findProject(':spring_cloud_server_config')?.name = 'spring-cloud-server-config'
 
