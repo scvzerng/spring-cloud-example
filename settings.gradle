@@ -3,4 +3,6 @@ include 'spring_cloud_server_config'
 findProject(':spring_cloud_server_config')?.name = 'spring-cloud-server-config'
 include 'spring_cloud_register_eureka'
 findProject(':spring_cloud_register_eureka')?.name = 'spring-cloud-register-eureka'
+include 'example_service'
+findProject(':example_service')?.name = 'example-service'
 

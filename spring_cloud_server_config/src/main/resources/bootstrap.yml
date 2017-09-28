@@ -7,16 +7,14 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8762/eureka/
 spring:
-  config:
-      name: config_server
   application:
     name: spring-cloud-config-server
   cloud:
     config:
       server:
         git:
-          uri: http://git.yazuosoft.com/zhangyemin/config-git/     # 配置git仓库的地址
-          search-paths: spring-cloud-config-server
+          uri: http://git.yazuosoft.com/zhangyemin/config-git.git   # 配置git仓库的地址 gitlab必须以.git结尾
+          search-paths: /**
           username: zhangyemin
           password: zhangyemin
     stream:
