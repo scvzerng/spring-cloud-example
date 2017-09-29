@@ -1,0 +1,15 @@
+eureka:
+  client:
+    serviceUrl:
+       defaultZone: http://localhost:8762/eureka/ #注册中心地址
+server:
+    port: 2000 #网关端口
+spring:
+    application:
+     name: spring-cloud-zuul #网关应用名
+    cloud:
+      config:
+        profile: dev
+        discovery:
+          enabled: true
+          service-id: spring-cloud-config-server
