@@ -1,5 +1,7 @@
 ## Eureka 注册中心
 
+![image](https://github.com/Netflix/eureka/raw/master/images/eureka_architecture.png)
+
 - **Eureka Server** `注册中心服务器`
 - **Eureka Client** application service  `服务提供者`
 - **Eureka Client** application client `服务消费者`
