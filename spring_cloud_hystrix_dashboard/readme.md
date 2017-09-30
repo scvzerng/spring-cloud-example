@@ -1,5 +1,7 @@
 ## Hystrix 监控面板
 
+![image](http://blog.didispace.com/content/images/posts/spring-cloud-starter-dalston-5-2-1.png)
+
 ## 步骤
 
 1. 启动`eureka`注册中心

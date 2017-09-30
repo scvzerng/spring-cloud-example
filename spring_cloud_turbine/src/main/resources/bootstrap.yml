@@ -1,0 +1,21 @@
+eureka:
+  client:
+    serviceUrl:
+       defaultZone: http://localhost:8762/eureka/ #注册中心地址
+server:
+    port: 9006 #网关端口
+spring:
+    application:
+     name: hystrix-turbine
+    cloud:
+      config:
+        profile: dev
+        discovery:
+          enabled: true
+          service-id: spring-cloud-config-server
+management:
+  port: 80
+turbine:
+  app-config: test-service
+  cluster-name-expression: new String('default')
+  combine-host-port: true

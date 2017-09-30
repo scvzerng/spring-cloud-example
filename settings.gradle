@@ -9,4 +9,8 @@ include 'spring_cloud_zuul'
 findProject(':spring_cloud_zuul')?.name = 'spring-cloud-zuul'
 include 'test_service'
 findProject(':test_service')?.name = 'test-service'
+include 'spring_cloud_hystrix_dashboard'
+findProject(':spring_cloud_hystrix_dashboard')?.name = 'spring-cloud-hystrix-dashboard'
+include 'spring_cloud_turbine'
+findProject(':spring_cloud_turbine')?.name = 'spring-cloud-turbine'
 
