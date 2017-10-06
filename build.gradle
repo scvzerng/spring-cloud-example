@@ -17,7 +17,7 @@ allprojects{
     apply plugin: 'java'
     apply plugin: 'idea'
     apply plugin: 'maven'
-    apply plugin: 'spring-boot'
+    apply plugin: 'org.springframework.boot'
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
     [compileJava,compileTestJava,javadoc]*.options*.encoding = 'UTF-8'
