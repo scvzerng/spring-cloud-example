@@ -1,33 +1,49 @@
 #!/bin/sh
-
-root="spring-cloud-example"
-project_name="spring_cloud_register_eureka"
-server_port=$2
-spring_profiles_active=$3
-
-function getProjects(){
-  checkRootProject;
-  cd ${root};
-  allProjects=`ls`;
-  echo ${allProjects}
-  for project in ${allProjects};
-  do
-  if [ ${project} == ${project_name}  ]; then
-    cd ${project_name}
-    gradle assemble
+# 脚本名称
+script="${0}"
+# 项目名称
+project="${1//_/-}"
+# 项目目录
+projectDir="${1}"
+# 启动环境
+profiles="${2}"
+# 根目录编译路径预处理 用于清除上次残留
+function prepareBuildDir(){
+  if [  -d "target" ]; then
+   rm -rf target
+   echo "******target dir cleaned******"
   fi
-  done
+  gradle ":${project}:clean"
+  mkdir -p target/package
+}
+# 导出gradle编译好的jar包到根项目target/package目录下
+function exportGradleBuild(){
+ gradle ":${project}:assemble"
+ echo "******project jar prepare complete******"
+ projectJar=`find "${projectDir}/build/libs/" -name *.jar`
+  cp -r  "${projectJar}"  "target/package"
+  echo "******copy project jar ${projectJar} to target success******"
 }
 
-function checkRootProject(){
-  cd ../../
-  root_path=`ls`
-  if echo "${root_path[@]}" | grep -w "${root}" &>/dev/null; then
-  return 1
+# 预处理并导出jar包到根目录
+function buildAndCopy(){
+prepareBuildDir
+exportGradleBuild
+}
+# 直接运行服务
+function serviceRun(){
+projectJar=`find "${projectDir}/build/libs/" -name *.jar`
+java -jar "${projectJar}" "--spring.profiles.active=${profiles}"
+}
+
+echo -e "******script:${script}****** \n ******project:${project}****** \n ******project_dir:${projectDir}******"
+cd ..
+workspace=`pwd`
+echo "******root_project:${workspace}******"
+buildAndCopy
+if [ $profiles ];then
+echo "******project start use ${profiles}******"
+serviceRun
 fi
-  echo -e "not found ${root} \n please check path include \n${root_path}"
-  exit 1
-}
-
-    getProjects
+echo "******${project} project build success******"
 

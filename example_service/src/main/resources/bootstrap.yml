@@ -9,7 +9,7 @@ spring:
             name: example-service
     cloud:
       config:
-        profile: dev
+        profile: ${spring.profiles.active}
         discovery:
           enabled: true
           service-id: spring-cloud-config-server
