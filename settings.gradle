@@ -13,4 +13,6 @@ include 'spring_cloud_hystrix_dashboard'
 findProject(':spring_cloud_hystrix_dashboard')?.name = 'spring-cloud-hystrix-dashboard'
 include 'spring_cloud_turbine'
 findProject(':spring_cloud_turbine')?.name = 'spring-cloud-turbine'
+include 'test-api'
+findProject(':test-api')?.name = 'test_api'
 
