@@ -15,4 +15,6 @@ include 'spring_cloud_turbine'
 findProject(':spring_cloud_turbine')?.name = 'spring-cloud-turbine'
 include 'test-api'
 findProject(':test-api')?.name = 'test_api'
+include 'spring-cloud-zipkin'
+findProject(':spring-cloud-zipkin')?.name = 'spring_cloud_zipkin'
 
