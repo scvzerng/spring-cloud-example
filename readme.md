@@ -10,3 +10,4 @@
 - `spring cloud zuul` 服务网关
 - `spring cloud server config` 配置文件服务器
 - `spring cloud bus kafka` 消息总线
+- `spring cloud zipkin kafka` 服务调用追踪
