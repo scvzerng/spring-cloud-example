@@ -1,6 +1,7 @@
 
 dependencies {
    compile 'org.springframework.cloud:spring-cloud-sleuth-zipkin-stream'
+   compile 'org.springframework.cloud:spring-cloud-sleuth-zipkin-stream'
    compile 'io.zipkin.java:zipkin-autoconfigure-ui'
    compile 'io.zipkin.java:zipkin-server'
 }

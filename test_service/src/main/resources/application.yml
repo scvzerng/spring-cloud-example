@@ -7,4 +7,3 @@ spring:
   sleuth:
     sampler:
       percentage: 1
-spring.sle

@@ -53,12 +53,10 @@ local pids=$(getServicePid)
 if [ !pids ];then
 echo "service ${PROJECT} is not running"
 exit 1
-
-
-
 fi
-
-kill -PIDS
+for pid in ${pids}; do
+    kill ${pid} > /dev/null 2>&1
+ done
 }
 
 echo -e "******script:${SCRIPT}****** \n ******project:${PROJECT}****** \n ******project_dir:${projectDir}******"
@@ -68,7 +66,13 @@ echo "******root_project:${workspace}******"
 buildAndCopy
 if [ COMMAND ];then
 echo "******project $COMMAND use ${PROFILE}******"
-serviceRun
+ if [ "$COMMAND"== "start" ];then
+ serviceRun
+ elif [ "$COMMAND"== "stop" ];then
+ stopService
+ else
+  echo "UNKNOWN COMMAND $COMMAND"
+ fi
 fi
 echo "******${PROJECT} project build success******"
 
