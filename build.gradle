@@ -11,7 +11,7 @@ buildscript {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
 }
-
+def dockerConfig =[register:'registry.cn-hangzhou.aliyuncs.com',namespace:'scvzerng']
 allprojects{
     group 'com.yazuo.intelligent'
     version '1.0-SNAPSHOT'
@@ -56,7 +56,9 @@ allprojects{
         }
     }
     task buildDocker(type: Docker, dependsOn: build) {
+        push = true
         applicationName = jar.baseName
+        tag = "${dockerConfig.register}/${dockerConfig.namespace}/${applicationName}"
         dockerfile = file('Dockerfile')
         doFirst {
             copy {
@@ -65,5 +67,7 @@ allprojects{
             }
         }
     }
+
+
 }
 

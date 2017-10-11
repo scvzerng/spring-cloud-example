@@ -1,6 +1,5 @@
-FROM frolvlad/alpine-oraclejdk8:slim
+FROM openjdk:8-jdk-alpine
 VOLUME /tmp
-ADD target/spring-cloud-register-eureka-1.0-SNAPSHOT.jar app.jar
+ADD target/spring-cloud-register-eureka-*-SNAPSHOT.jar app.jar
 ENV JAVA_OPTS=""
-EXPOSE 8762
 ENTRYPOINT exec java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar
