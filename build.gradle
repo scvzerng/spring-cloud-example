@@ -56,7 +56,7 @@ allprojects{
         }
     }
     task buildDocker(type: Docker, dependsOn: build) {
-        push = true
+        push = false
         applicationName = jar.baseName
         tag = "${dockerConfig.register}/${dockerConfig.namespace}/${applicationName}"
         dockerfile = file('Dockerfile')
