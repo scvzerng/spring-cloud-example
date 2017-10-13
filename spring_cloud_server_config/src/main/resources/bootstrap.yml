@@ -1,11 +1,12 @@
 
 server:
-  port: 8040
-
+  port: 8004
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8762/eureka/
+  instance:
+    hostname: localhost
 spring:
   application:
     name: spring-cloud-config-server

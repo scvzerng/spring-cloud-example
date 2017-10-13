@@ -1,9 +1,0 @@
-logging:
-  path: /logs
-  level:
-     com.yazuo: debug
-  file: service.log
-spring:
-  sleuth:
-    sampler:
-      percentage: 1

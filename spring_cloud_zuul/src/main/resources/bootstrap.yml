@@ -9,7 +9,7 @@ spring:
      name: spring-cloud-zuul #网关应用名
     cloud:
       config:
-        profile: dev
+        profile: ${spring.profiles.active:dev}
         discovery:
           enabled: true
           service-id: spring-cloud-config-server

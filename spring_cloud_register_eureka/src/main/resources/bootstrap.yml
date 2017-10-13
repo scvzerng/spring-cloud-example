@@ -10,9 +10,9 @@ spring:
           brokers: localhost:9092
           zk-nodes: localhost:2181
 eureka:
-  server:
-     eviction-interval-timer-in-ms: 1000 # 驱逐间隔
-     renewal-percent-threshold: 0.1 #自我保护阀值
+#  server:
+#     eviction-interval-timer-in-ms: 1000 # 驱逐间隔
+#     renewal-percent-threshold: 0.1 #自我保护阀值
   instance:
     hostname: localhost #实例域名
   client:
