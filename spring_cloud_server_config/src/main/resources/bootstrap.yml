@@ -14,15 +14,19 @@ spring:
     config:
       server:
         git:
-          uri: http://git.yazuosoft.com/zhangyemin/config-git.git   # 配置git仓库的地址 gitlab必须以.git结尾
+          uri: http://git.yazuosoft.com/yazuo-intelligent/intelligent_config.git   # 配置git仓库的地址 gitlab必须以.git结尾
           search-paths: /**
           username: zhangyemin
           password: zhangyemin
-    stream:
-      kafka:
-        binder:
-          brokers: localhost:9092
-          zkNodes: localhost:2181
+          repos:
+            intelligent:
+              pattern: intelligent-*/*
+              cloneOnStart: true
+              search-paths: /**
+              username: zhangyemin
+              password: zhangyemin
+              uri: http://git.yazuosoft.com/zhangyemin/config-git.git
+
 management:
   security:
     enabled: false        # git仓库地址下的相对地址，可以配置多个，用,分割。
